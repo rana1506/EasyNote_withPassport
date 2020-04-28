@@ -1,0 +1,24 @@
+extends layout
+
+
+block content
+  .row.banner
+    .col-12
+      h1= pageHeader.title
+        small &nbsp;#{pageHeader.strapLine}
+
+  .row
+    .col-12.col-md-8
+      .error= message
+
+      each location in locations
+        .card
+          .card-block
+            h4
+              a(href=`/server/noteinfo/${location._id}`)= location.title              
+              span.badge.badge-pill.badge-default.float-right= location._id
+            p.address= location.content
+            
+
+    .col-12.col-md-4
+      p.lead= sidebar
